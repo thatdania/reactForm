@@ -3,7 +3,12 @@ import './App.css';
 
 class App extends Component {
   render() {
-      return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'HelloCrazy'));
+    return (
+      <div className="App">
+        <h1> Hi I am a react App</h1>
+        <p> Is this working? </p>
+      </div>
+    );
   }
 }
 
