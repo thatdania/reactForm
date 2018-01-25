@@ -8,7 +8,8 @@ class App extends Component {
       { name:'Max', age:'28'},
       { name:'Marco', age:'26'},
       {name:'Dania', age:'23'}
-    ]
+    ],
+    showPersons: false
   }
 
   switchNameHandler = (newName) => {
@@ -31,6 +32,12 @@ class App extends Component {
     })
   }
 
+  togglePersonsHandler = () => {
+    const doesShow = this.state.showPersons;
+    this.setState({showPersons : !doesShow})
+    console.log(this.state.showPersons)
+  }
+
   render() {
 
     const style = {
@@ -42,22 +49,26 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <h1> Hi I am a react App</h1>
-        <p> Is thiz working? </p>
+        <h1> React Form Edits </h1>
+        <p> Is thiz working? Yeah! </p>
         <button
           style={style}
-          onClick={() => this.switchNameHandler('Hillies')}> Switch Name </button>
-        <Person
-          name={this.state.persons[0].name}
-          age={this.state.persons[0].age} />
-        <Person
-          name={this.state.persons[1].name}
-          age={this.state.persons[1].age}
-          click={this.switchNameHandler.bind(this, 'Moo!')}
-          change={this.nameChangedHandler}> Hobby: Youtube </Person>
-        <Person
-          name={this.state.persons[2].name}
-          age={this.state.persons[2].age}/>
+          onClick={this.togglePersonsHandler}> Release Form </button>
+          { this.state.showPersons === true ?
+          <div>
+            <Person
+              name={this.state.persons[0].name}
+              age={this.state.persons[0].age} />
+            <Person
+              name={this.state.persons[1].name}
+              age={this.state.persons[1].age}
+              click={this.switchNameHandler.bind(this, 'Moo!')}
+              change={this.nameChangedHandler}> Hobby: Youtube </Person>
+            <Person
+              name={this.state.persons[2].name}
+              age={this.state.persons[2].age}/>
+          </div> : null
+        }
       </div>
     );
   }
