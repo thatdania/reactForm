@@ -32,22 +32,32 @@ class App extends Component {
   }
 
   render() {
+
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '18px',
+      cursor: 'pointer'
+    }
     return (
       <div className="App">
         <h1> Hi I am a react App</h1>
         <p> Is thiz working? </p>
-        <button onClick={() => this.switchNameHandler('Hillies')}> Switch Name </button>
+        <button
+          style={style}
+          onClick={() => this.switchNameHandler('Hillies')}> Switch Name </button>
         <Person
-        name={this.state.persons[0].name}
-        age={this.state.persons[0].age} />
+          name={this.state.persons[0].name}
+          age={this.state.persons[0].age} />
         <Person
-        name={this.state.persons[1].name}
-        age={this.state.persons[1].age}
-        click={this.switchNameHandler.bind(this, 'Moo!')}
-        change={this.nameChangedHandler}> Hobby: Youtube </Person>
+          name={this.state.persons[1].name}
+          age={this.state.persons[1].age}
+          click={this.switchNameHandler.bind(this, 'Moo!')}
+          change={this.nameChangedHandler}> Hobby: Youtube </Person>
         <Person
-        name={this.state.persons[2].name}
-        age={this.state.persons[2].age}/>
+          name={this.state.persons[2].name}
+          age={this.state.persons[2].age}/>
       </div>
     );
   }
